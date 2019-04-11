@@ -48,14 +48,11 @@ void Sim::runSim(string name)
     //main loop
     while(!flag)
     {
-        cout << master << "|||||" << endl;;
-
         //add more students in the queue
         if(master == file.getLine(line))
         {
             line++;
             numStudents = file.getLine(line++);
-            cout << "# next students: " << numStudents << endl;
             //insert students in queue
             for(int x = line; x < (line+numStudents); x++)
             {
@@ -94,20 +91,19 @@ void Sim::runSim(string name)
             {
                 windowArray[y].increaseIdle();
             }
-            cout << windowArray[y].getTimeIdle() << '|';
+            //cout << windowArray[y].getTimeIdle() << '|';
         }
-        cout << '\n';
+        //cout << '\n';
 
         //print for visual
-        for(int t = 0; t < openWindows; t++)
-        {
-            cout << windowArray[t].getTimeBusy() << '|';
-        }
-        cout << '\n';
-        cout << '\n';
+        // for(int t = 0; t < openWindows; t++)
+        // {
+        //     cout << windowArray[t].getTimeBusy() << '|';
+        // }
+        // cout << '\n';
+        // cout << '\n';
 
         //end loop case
-        cout << dequeueCount << '|' << sumStudents << endl;
         if(dequeueCount == sumStudents)
         {
             for(int k = 0; k < openWindows; k++)
@@ -199,7 +195,7 @@ void Sim::printAll()
     {
         cout << windowStats[i] << '|';
     }
-    cout << '\n';
+    cout << '\n' << '\n';
 
     //find median student wait
     if((numStudents%2) == 1)
